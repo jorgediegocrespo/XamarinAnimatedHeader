@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             x:Class="AnimatedHeader.MainPage"
+             ios:Page.UseSafeArea="true">
+    
+    <Grid x:Name="gridContent"
+          RowDefinitions="15,100,35,35,15,*"
+          RowSpacing="0" ColumnSpacing="0"
+          Padding="0" Margin="0">
+
+        <BoxView x:Name="bvTopSafeArea" Grid.RowSpan="2"
+                 BackgroundColor="LightGray"
+                 TranslationY="-50"
+                 HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+
+        <CollectionView x:Name="cvItems" Grid.RowSpan="6"
+                        Scrolled="cvItems_Scrolled">
+            <CollectionView.Header>
+                <BoxView HeightRequest="200"
+                         BackgroundColor="Transparent" />
+            </CollectionView.Header>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Label Text="{Binding .}"
+                           FontAttributes="Bold"
+                           Margin="20"/>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <BoxView x:Name="bvHeaderBackground" Grid.RowSpan="5"
+                 BackgroundColor="LightGray"
+                 HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+
+        <Frame x:Name="frImage" Grid.Row="1"
+               HasShadow="False"
+               IsClippedToBounds="True"
+               Padding="0"
+               CornerRadius="50" HeightRequest="100" WidthRequest="100"
+               HorizontalOptions="Center" VerticalOptions="Center">
+            <Image Source="https://jorgediegocrespo.files.wordpress.com/2019/11/iphonesafearea-e1574276852279.jpg"
+                   Aspect="AspectFill"
+                   HeightRequest="100" WidthRequest="100"
+                   HorizontalOptions="Center" VerticalOptions="Center" />
+        </Frame>
+
+        <Label x:Name="lbName" Grid.Row="2"
+               Text="JORGE DIEGO CRESPO"
+               FontAttributes="Bold" FontSize="20"
+               Margin="0,10,0,0"
+               VerticalTextAlignment="Center" HorizontalOptions="Center"/>
+
+        <Label x:Name="lbJob" Grid.Row="3"
+               Text="Xamarin developer"
+               FontSize="16" TextColor="Gray"
+               Margin="0,10,0,0"
+               VerticalTextAlignment="Start" HorizontalOptions="Center"/>
+    </Grid>
+</ContentPage>
